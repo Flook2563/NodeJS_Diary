@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diary</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+</head>
+<body>
+    <%- include('../layout') %>
+    <div class="py-2">
+        <a href="/" class="btn btn-success">กลับหน้าแรก</a>
+    </div>
+    
+    <hr>
+    <h2><%= data %></h2>
+    <% if (locals.errors) { %>
+        <ul class="alert alert-danger">
+            <% Object.values(errors).forEach(function(error){ %>
+                  <li class="mx-3"><%= error.msg %></li>
+            <% }); %>
+        </ul>
+    <% } %>
+    <form class="" action="/diary/add" method="POST">
+        <div class="form-group">
+            <label for="">หัวข้อไดอารี่</label>
+            <input type="text" name="title" class="form-control" >
+        </div>
+        <div class="form-group">
+            <label for="">รายละเอียด</label>
+            <textarea name="detail" id="detail_id" cols="30" rows="10" class="form-control" ></textarea>
+        </div>
+        <div class="form-group">
+            <label for="">แต่งโดย</label>
+            <input type="text" name="author" class="form-control" >
+        </div>
+        <input type="submit" name="" value="บันทึก" class="btn btn-primary">
+    </form>
+    <script>
+
+    </script>   
+</body>
+
+</html>
